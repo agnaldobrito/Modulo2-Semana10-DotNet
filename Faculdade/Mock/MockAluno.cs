@@ -4,7 +4,7 @@ namespace Faculdade.Mock
 {
     public class MockAluno
     {
-        public static List<Aluno> Estudantes = new()
+        public static List<Aluno> Alunos = new()
         {
             new Aluno
             {
