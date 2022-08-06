@@ -8,14 +8,14 @@ namespace Faculdade.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlunosController : ControllerBase
+    public class ProfessorController : ControllerBase
     {
         /// <summary>
-        /// Retorna uma lista de alunos
+        /// Retorna uma lista de professores
         /// </summary>
-        /// <returns>Retorna alunos cadastrados no banco de dados</returns>
-        /// <response code = "200">Retorna uma lista de alunos</response>
-        /// <response code = "404">Não encontrou lista de alunos</response>
+        /// <returns>Retorna professores cadastrados no banco de dados</returns>
+        /// <response code = "200">Retorna uma lista de professores</response>
+        /// <response code = "404">Não encontrou lista de professores</response>
         /// <response code = "500">Ocorreu um erro durante a execução</response>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -25,8 +25,8 @@ namespace Faculdade.Controllers
         {
             try
             {
-                var mockAlunos = MockAluno.Alunos;
-                return mockAlunos.Any() ? Ok(mockAlunos) : StatusCode(404);
+                var mockProfessor = MockProfessor.Professores;
+                return mockProfessor.Any() ? Ok(mockProfessor) : StatusCode(404);
             }
             catch
             {
@@ -35,12 +35,12 @@ namespace Faculdade.Controllers
         }
 
         /// <summary>
-        /// Retorna o aluno especificado
+        /// Retorna o professor especificado
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Retorna o aluno cadastrado no banco de dados</returns>
-        /// <response code="200">Retorna o aluno</response>
-        /// <respone code="404">Não encontrou o aluno pesquisado</respone>
+        /// <returns>Retorna o professor cadastrado no banco de dados</returns>
+        /// <response code="200">Retorna o professor</response>
+        /// <respone code="404">Não encontrou o professor pesquisado</respone>
         /// <response code="500">Ocorreu erro durante a execução</response>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -48,75 +48,74 @@ namespace Faculdade.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
-            try 
+            try
             {
-                var mockAlunoSelecionado = MockAluno.Alunos.FirstOrDefault(x => x.Id == id);
-                return mockAlunoSelecionado != null ? Ok(mockAlunoSelecionado) : StatusCode(404);
+                var mockProfessorSelecionado = MockProfessor.Professores.FirstOrDefault(x => x.Id == id);
+                return mockProfessorSelecionado != null ? Ok(mockProfessorSelecionado) : StatusCode(404);
             }
-            catch 
+            catch
             {
                 return StatusCode(500);
             }
-            
+
         }
 
         /// <summary>
-        /// Inserir aluno
+        /// Cadastrar professor
         /// </summary>
         /// <param name="value"></param>
-        /// <returns>Retorna aluno inserido com sucesso no banco de dados</returns>
-        /// <response code="201">Aluno inserido com sucesso</response>
-        /// <respone code="404">Não encontrou o aluno pesquisado</respone>
+        /// <returns>Retorna professor inserido com sucesso no banco de dados</returns>
+        /// <response code="201">Professor inserido com sucesso</response>
+        /// <respone code="404">Não encontrou o professor especificado</respone>
         /// <response code="500">Ocorreu erro durante a execução</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Post([FromBody] Aluno value)
+        public async Task<IActionResult> Post([FromBody] Professor value)
         {
             try
             {
-               
-                if(value != null)
+
+                if (value != null)
                 {
-                    MockAluno.Alunos.Add(value);
+                    MockProfessor.Professores.Add(value);
                     return StatusCode(201);
                 }
                 else
                 {
                     return StatusCode(404);
                 }
-                
+
             }
             catch
             {
-                    return StatusCode(500);
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Atualizar aluno
+        /// Atualizar professor
         /// </summary>
         /// <param name="id"></param>
         /// <param name="value"></param>
-        /// <returns>Retorna aluno atualizado com sucesso do banco de dados</returns>
-        ///<response code="202">A atualização foi feita com sucesso </response>
+        /// <returns>Retorna professor atualizado do banco de dados</returns>
+        ///<response code="202">A atualização foi feita com sucesso</response>
         /// <respone code="404">Atualização não realizada</respone>
         /// <response code="500">Ocorreu erro durante a execução</response>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Put(int id, [FromBody] Aluno value)
+        public async Task<IActionResult> Put(int id, [FromBody] Professor value)
         {
-            try 
+            try
             {
-                var mockAlunoSelecionado = MockAluno.Alunos.FirstOrDefault(x => x.Id == id);
-                if(mockAlunoSelecionado != null)
+                var mockProfessorSelecionado = MockProfessor.Professores.FirstOrDefault(x => x.Id == id);
+                if (mockProfessorSelecionado != null)
                 {
-                    mockAlunoSelecionado.Nome = value.Nome;
-                    mockAlunoSelecionado.Endereco = value.Endereco;
-                    mockAlunoSelecionado.Idade = value.Idade;
+                    mockProfessorSelecionado.Nome = value.Nome;
+                    mockProfessorSelecionado.Graduacao = value.Graduacao;
                     return StatusCode(201);
 
                 }
@@ -125,18 +124,18 @@ namespace Faculdade.Controllers
                     return StatusCode(404);
                 }
             }
-            catch 
+            catch
             {
                 return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Remover Aluno
+        /// Remover professor
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Retorna aluno exlcuído com sucesso no banco de dados</returns>
-        /// <response code="204">Aluno excluído com sucesso</response>
+        /// <returns>Retorna professor excluído com sucesso no banco de dados</returns>
+        /// <response code="204">Professor excluído com sucesso</response>
         /// <response code="404">Remoção não realizada</response>
         /// <response code="500">Ocorreu erro durante a execução</response>
         [HttpDelete("{id}")]
@@ -145,22 +144,22 @@ namespace Faculdade.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Delete(int id)
         {
-            try 
+            try
             {
-                var mockAlunoSelecionado = MockAluno.Alunos.FirstOrDefault(x=>x.Id == id);
-                if (mockAlunoSelecionado != null)
+                var mockProfessorSelecionado = MockProfessor.Professores.FirstOrDefault(x => x.Id == id);
+                if (mockProfessorSelecionado != null)
                 {
-                    MockAluno.Alunos.Remove(mockAlunoSelecionado);
+                    MockProfessor.Professores.Remove(mockProfessorSelecionado);
                     return StatusCode(200);
                 }
                 else
                 {
                     return StatusCode(404);
                 }
-                
-                
+
+
             }
-            catch 
+            catch
             {
                 return StatusCode(500);
             }
