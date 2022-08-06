@@ -76,17 +76,8 @@ namespace Faculdade.Controllers
         {
             try
             {
-
-                if (value != null)
-                {
                     MockDisciplina.Disciplinas.Add(value);
                     return StatusCode(201);
-                }
-                else
-                {
-                    return StatusCode(404);
-                }
-
             }
             catch
             {
