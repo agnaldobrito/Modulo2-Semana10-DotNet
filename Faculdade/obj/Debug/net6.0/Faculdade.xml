@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Faculdade</name>
+    </assembly>
+    <members>
+        <member name="M:Faculdade.Controllers.AlunosController.Get">
+            <summary>
+            Retorna uma lista de alunos
+            </summary>
+            <returns>Retorna alunos cadastrados no banco de dados</returns>
+            <response code = "200">Retorna uma lista de alunos</response>
+            <response code = "404">Não encontrou lista de alunos</response>
+            <response code = "500">Ocorreu um erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.AlunosController.Get(System.Int32)">
+            <summary>
+            Retorna o aluno especificado
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna o aluno cadastrado no banco de dados</returns>
+            <response code="200">Retorna o aluno</response>
+            <respone code="404">Não encontrou o aluno pesquisado</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.AlunosController.Post(Faculdade.Models.Aluno)">
+            <summary>
+            Inserir aluno
+            </summary>
+            <param name="value"></param>
+            <returns>Retorna aluno inserido com sucesso no banco de dados</returns>
+            <response code="201">Aluno inserido com sucesso</response>
+            <respone code="404">Não encontrou o aluno pesquisado</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.AlunosController.Put(System.Int32,Faculdade.Models.Aluno)">
+             <summary>
+             Atualizar aluno
+             </summary>
+             <param name="id"></param>
+             <param name="value"></param>
+             <returns>Retorna aluno atualizado com sucesso do banco de dados</returns>
+            <response code="202">A atualização foi feita com sucesso </response>
+             <respone code="404">Atualização não realizada</respone>
+             <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.AlunosController.Delete(System.Int32)">
+            <summary>
+            Remover Aluno
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna aluno exlcuído com sucesso no banco de dados</returns>
+            <response code="204">Aluno excluído com sucesso</response>
+            <response code="404">Remoção não realizada</response>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.DisciplinaController.Get">
+            <summary>
+            Retorna uma lista de disciplinas
+            </summary>
+            <returns>Retorna disciplinas cadastradas no banco de dados</returns>
+            <response code = "200">Retorna uma lista de disciplinas</response>
+            <response code = "404">Não encontrou lista de disciplinas</response>
+            <response code = "500">Ocorreu um erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.DisciplinaController.Get(System.Int32)">
+            <summary>
+            Retorna a disciplina especificada
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna a disciplina cadastrada no banco de dados</returns>
+            <response code="200">Retorna a disciplina</response>
+            <respone code="404">Não encontrou a disciplina pesquisada</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.DisciplinaController.Post(Faculdade.Models.Disciplina)">
+            <summary>
+            Cadastrar disciplina
+            </summary>
+            <param name="value"></param>
+            <returns>Retorna disciplina inserida com sucesso no banco de dados</returns>
+            <response code="201">Disciplina inserida com sucesso</response>
+            <respone code="404">Não encontrou a disciplina selecionada</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.DisciplinaController.Put(System.Int32,Faculdade.Models.Disciplina)">
+             <summary>
+             Atualizar disciplina
+             </summary>
+             <param name="id"></param>
+             <param name="value"></param>
+             <returns>Retorna disciplina atualizada do banco de dados</returns>
+            <response code="202">A atualização foi feita com sucesso</response>
+             <respone code="404">Atualização não realizada</respone>
+             <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.DisciplinaController.Delete(System.Int32)">
+            <summary>
+            Remover disciplina
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna disciplina excluída com sucesso no banco de dados</returns>
+            <response code="204">Disciplina excluída com sucesso</response>
+            <response code="404">Remoção não realizada</response>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.ProfessorController.Get">
+            <summary>
+            Retorna uma lista de professores
+            </summary>
+            <returns>Retorna professores cadastrados no banco de dados</returns>
+            <response code = "200">Retorna uma lista de professores</response>
+            <response code = "404">Não encontrou lista de professores</response>
+            <response code = "500">Ocorreu um erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.ProfessorController.Get(System.Int32)">
+            <summary>
+            Retorna o professor especificado
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna o professor cadastrado no banco de dados</returns>
+            <response code="200">Retorna o professor</response>
+            <respone code="404">Não encontrou o professor pesquisado</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.ProfessorController.Post(Faculdade.Models.Professor)">
+            <summary>
+            Cadastrar professor
+            </summary>
+            <param name="value"></param>
+            <returns>Retorna professor inserido com sucesso no banco de dados</returns>
+            <response code="201">Professor inserido com sucesso</response>
+            <respone code="404">Não encontrou o professor especificado</respone>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.ProfessorController.Put(System.Int32,Faculdade.Models.Professor)">
+             <summary>
+             Atualizar professor
+             </summary>
+             <param name="id"></param>
+             <param name="value"></param>
+             <returns>Retorna professor atualizado do banco de dados</returns>
+            <response code="202">A atualização foi feita com sucesso</response>
+             <respone code="404">Atualização não realizada</respone>
+             <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+        <member name="M:Faculdade.Controllers.ProfessorController.Delete(System.Int32)">
+            <summary>
+            Remover professor
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna professor excluído com sucesso no banco de dados</returns>
+            <response code="204">Professor excluído com sucesso</response>
+            <response code="404">Remoção não realizada</response>
+            <response code="500">Ocorreu erro durante a execução</response>
+        </member>
+    </members>
+</doc>

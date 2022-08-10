@@ -143,7 +143,7 @@ namespace Faculdade.Controllers
                 if (mockAlunoSelecionado != null)
                 {
                     MockAluno.Alunos.Remove(mockAlunoSelecionado);
-                    return StatusCode(200);
+                    return StatusCode(204);
                 }
                 else
                 {

@@ -5,23 +5,23 @@ namespace Faculdade.Mock
 {
     public class MockDisciplina
     {
-        public static List<Disciplina> Disciplinas = new()
+        public static List<Curso> Disciplinas = new()
         {
-            new Disciplina
+            new Curso
             {
                 Id = 1,
                 Nome = "Metodologia Científica",
                 CargaHoraria = 40
 
             },
-            new Disciplina
+            new Curso
             {
                 Id = 2,
                 Nome = "Introdução à Programação",
                 CargaHoraria = 80
 
             },
-            new Disciplina
+            new Curso
             {
                 Id = 3,
                 Nome = "Banco de Dados",
